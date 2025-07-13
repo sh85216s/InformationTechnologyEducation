@@ -17,7 +17,7 @@
 <body>
     <div class="container">
         <div class="row Biaoti">
-            <h3>愛蘭國小資訊教育推廣網站</h3>
+            <h2>愛蘭國小資訊教育推廣網站</h2>
         </div>
             <!-- 選單 -->
         <div class="row">
@@ -206,6 +206,19 @@
                     </ul>
                 </div>
 
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        數位素養與安全
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://eliteracy.edu.tw/"
+                                target="_blank">中小學數位素養教育資源網</a></li>
+                        <li><a class="dropdown-item" href="https://www.twcert.org.tw/tw/mp-1.html" target="_blank">台灣電腦網路危機處理暨協調中心</a></li>
+                        <li><a class="dropdown-item" href="https://tfc-taiwan.org.tw/" target="_blank">台灣事實查核中心</a></li>
+                        
+                    </ul>
+                </div>
+
                 <!-- 右側 hover 且右對齊的下拉選單 -->
                 <div class="btn-group dropdown">
                     <button type="button" class="btn btn-secondary dropdown-toggle">
@@ -246,6 +259,18 @@
     <nav>
         <ul class="pagination justify-content-center mt-4" id="pagination"></ul>
     </nav>
+</div>
+
+<div class="footer">
+    <div class="col">
+        「教務主任」或「資訊組長」<a class="a_link" href="https://mdm.edu.tw/" target="_blank"
+            title="目前只有教務主任和資訊組可以查看">查看平板使用情形</a>&nbsp;&nbsp;‖&nbsp;&nbsp;最新修正時間：<span id="lastModified"></span>&nbsp;&nbsp;‖&nbsp;&nbsp;<a class="a_link"
+                href="https://docs.google.com/spreadsheets/d/14QrggSS-WaNefahB1r3_I2mTnvYdkacIR3ZITWr1pRw/edit?usp=drive_link"
+                target="_blank" title="僅限資訊組長">張貼公告</a>
+
+
+            
+    </div>
 </div>
 
 <script>
@@ -309,7 +334,14 @@
             pagination.appendChild(li);
         }
     }
-</script>   
+</script>
+    <!-- 以下--顯示最後修改時間 -->
+    <script>
+        const lastModified = new Date(document.lastModified);
+        const formattedDateTime = `${lastModified.getFullYear()}-${lastModified.getMonth() + 1}-${String(lastModified.getDate()).padStart(2, '0')} ${String(lastModified.getHours()).padStart(2, '0')}:${String(lastModified.getMinutes()).padStart(2, '0')}:${String(lastModified.getSeconds()).padStart(2, '0')}`;
+        document.getElementById("lastModified").textContent = formattedDateTime;
+    </script>
+    <!-- 以上--顯示最後修改時間 -->
 </body>
 
 </html>
