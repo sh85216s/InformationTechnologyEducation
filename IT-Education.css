@@ -1,0 +1,73 @@
+.Biaoti {
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    z-index: 1000;
+
+    /* 關鍵：讓寬度自動根據文字調整 */
+    min-width: auto !important;
+    width: auto !important;
+    white-space: nowrap;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu-end {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* 子選單樣式 */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -0.125rem;
+    display: none;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a::after {
+    /* content: "▶"; */
+    /* content: "➥"; */
+    float: right;
+    margin-left: 5px;
+}
+
+.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+/* 主選單與子選單 hover 時背景變紅色 */
+.dropdown-item:hover {
+    background-color: rgb(45, 160, 60) !important;
+    color: #fff !important;
+}
+
+/* ✅ 當滑鼠在子選單上時，讓上一層也變紅 */
+.dropdown-submenu:hover>a {
+    background-color: rgb(45, 160, 60) !important;
+    color: #fff !important;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    background-color: #b6f5bb !important;
+}
