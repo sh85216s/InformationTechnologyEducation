@@ -3,6 +3,22 @@
     font-size: 1.5rem;
 }
 
+/* 修改選單列的排列樣式 */
+.row>.col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* 這會在所有方向添加5px間距 */
+    row-gap: 5px;
+    /* 特別確保行與行之間有5px間距 */
+}
+
+/* 下拉選單按鈕樣式調整 */
+.dropdown-toggle {
+    white-space: nowrap;
+    /* 確保按鈕文字不換行 */
+}
+
 .dropdown {
     position: relative;
 }
@@ -72,14 +88,56 @@
     background-color: #b6f5bb !important;
 }
 
-  .footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      background-color: #aef4ae;
-      color: #0c2c14;
-      padding: 5px 0 5px 0;
-      font-size: 1em;
-  }
+.accordion-button:hover {
+    background-color: #eee !important;
+}
+
+.accordion-body {
+    background-color: #b8f5c7;
+}
+
+/* active 類別僅在 hover 時動態加上，不預設附加 */
+.accordion-button.active {
+    background-color: #3ea045 !important;
+    color: white;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #3ea045;
+    color: #fff;
+    padding: 5px 0 5px 0;
+    font-size: 1em;
+}
+
+/* 新增響應式設計 */
+@media (max-width: 576px) {
+
+    /* 當螢幕寬度小於576px（手機尺寸）時 */
+    .footer .col {
+        display: block;
+    }
+
+    .footer .a_link {
+        display: inline-block;
+        margin: 3px 0;
+        /* 添加一些垂直間距 */
+    }
+
+    .footer br {
+        display: block;
+        /* 確保<br>標籤生效 */
+        content: " ";
+        /* 添加一些間距 */
+        margin-bottom: 3px;
+    }
+
+    /* 隱藏原本的分隔線 */
+    .footer .hidden-on-mobile {
+        display: none;
+    }
+}
