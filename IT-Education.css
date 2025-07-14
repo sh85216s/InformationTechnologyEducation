@@ -1,3 +1,14 @@
+body {
+    background: linear-gradient(0deg, #c5d5fa, #c3dc99);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 90%;
+}
+
 .Biaoti {
     margin-top: 30px;
     font-size: 1.5rem;
@@ -106,7 +117,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 90%;
     text-align: center;
     background-color: #3ea045;
     color: #fff;
@@ -140,4 +151,27 @@
     .footer .hidden-on-mobile {
         display: none;
     }
+}
+
+.table_AP {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.floor-header {
+    background-color: #e6e6e6;
+    font-weight: bold;
 }
