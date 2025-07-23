@@ -5,6 +5,43 @@ body {
     background-size: cover;
 }
 
+.icon-text {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: bottom;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+}
+
+.icon-text img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    vertical-align: text-top;
+}
+
+.icon-text span {
+    vertical-align: bottom;
+}
+
+.table_AP {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 5px 0;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.th_AP {
+    background-color: #f6ccfc;
+}
+
 /* 分頁樣式 */
 .pagination .page-item.active .page-link {
     background-color: #c57998 !important;
@@ -21,7 +58,7 @@ body {
     background-color: #f00;
 }
 
-h4 {
+h3 {
     color: rgb(252, 43, 182);
 }
 
@@ -50,12 +87,6 @@ h4 {
 
 .container {
     width: 90%;
-}
-
-/* 基礎樣式保持不變 */
-.Biaoti {
-    margin-top: 30px;
-    font-size: 1.5rem;
 }
 
 /* 修改 .btn-secondary 顏色 */
@@ -128,14 +159,16 @@ h4 {
 
 .dropdown-toggle {
     white-space: nowrap;
-    text-align: left;
-    padding: 6px 30px 6px 12px;
-    min-width: 140px;
+    text-align: center;
+    padding: 6px 12px;
+    width: auto;
+    min-width: auto;
     position: relative;
 }
 
 .btn-group.dropdown:nth-of-type(4) .dropdown-toggle {
-    min-width: 170px;
+    width: auto;
+    min-width: auto;
 }
 
 .dropdown-submenu {
@@ -171,6 +204,62 @@ h4 {
     transition: all 0.2s;
 }
 
+/* 針對AI工具下拉選單的特殊樣式 */
+.dropdown:nth-of-type(4) .dropdown-menu {
+    max-height: 450px;
+    overflow-y: auto;
+    /* 以下樣式可讓卷軸更好看 */
+    scrollbar-width: thin;
+    scrollbar-color: #c57998 #f6ccfc;
+}
+
+/* 針對Webkit瀏覽器（Chrome, Safari等）的卷軸樣式 */
+.dropdown:nth-of-type(4) .dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown:nth-of-type(4) .dropdown-menu::-webkit-scrollbar-track {
+    background: #f6ccfc;
+}
+
+.dropdown:nth-of-type(4) .dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #c57998;
+    border-radius: 4px;
+}
+
+/* 摺疊標題樣式 */
+.collapsible-header {
+    padding: 20px 0 0 1%;
+    cursor: pointer;
+    color: #333;
+    /* 預設黑色 */
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    /* 顏色過渡效果 */
+}
+
+/* 展開時標題變紅色 */
+.collapsible-header.active {
+    color: red;
+}
+
+/* 摺疊內容樣式 */
+.collapsible-content {
+    display: none;
+    padding: 0 1%;
+}
+
+/* 箭頭圖示樣式 */
+.collapsible-header i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-header.active i {
+    transform: rotate(180deg);
+}
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -180,7 +269,7 @@ h4 {
     background-color: #b16585;
     color: #fff;
     padding: 8px 0;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 @media (max-width: 576px) {
