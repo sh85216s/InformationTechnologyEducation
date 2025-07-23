@@ -1,0 +1,180 @@
+body {
+    background: linear-gradient(0deg, #c5d5fa, #c3dc99);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h4 {
+    color: rgb(252, 43, 182) ;
+}
+
+.container {
+    width: 90%;
+}
+
+.Biaoti {
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+/* 修改選單列的排列樣式 */
+.row>.col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* 這會在所有方向添加5px間距 */
+    row-gap: 5px;
+    /* 特別確保行與行之間有5px間距 */
+}
+
+/* 下拉選單按鈕樣式調整 */
+.dropdown-toggle {
+    white-space: nowrap;
+    /* 確保按鈕文字不換行 */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    z-index: 1000;
+
+    /* 關鍵：讓寬度自動根據文字調整 */
+    min-width: auto !important;
+    width: auto !important;
+    white-space: nowrap;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu-end {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* 子選單樣式 */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -0.125rem;
+    display: none;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a::after {
+    content: "➤";
+    float: right;
+    margin-left: 5px;
+}
+
+.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+/* 主選單與子選單 hover 時背景變紅色 */
+.dropdown-item:hover {
+    background-color: rgb(45, 160, 60) !important;
+    color: #fff !important;
+}
+
+/* ✅ 當滑鼠在子選單上時，讓上一層也變紅 */
+.dropdown-submenu:hover>a {
+    background-color: rgb(45, 160, 60) !important;
+    color: #fff !important;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    background-color: #b6f5bb !important;
+}
+
+.accordion-button:hover {
+    background-color: #eee !important;
+}
+
+.accordion-body {
+    background-color: #b8f5c7;
+}
+
+/* active 類別僅在 hover 時動態加上，不預設附加 */
+.accordion-button.active {
+    background-color: #3ea045 !important;
+    color: white;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #3ea045;
+    color: #fff;
+    padding: 5px 0 5px 0;
+    font-size: 1em;
+}
+
+/* 新增響應式設計 */
+@media (max-width: 576px) {
+
+    /* 當螢幕寬度小於576px（手機尺寸）時 */
+    .footer .col {
+        display: block;
+    }
+
+    .footer .a_link {
+        display: inline-block;
+        margin: 3px 0;
+        /* 添加一些垂直間距 */
+    }
+
+    .footer br {
+        display: block;
+        /* 確保<br>標籤生效 */
+        content: " ";
+        /* 添加一些間距 */
+        margin-bottom: 3px;
+    }
+
+    /* 隱藏原本的分隔線 */
+    .footer .hidden-on-mobile {
+        display: none;
+    }
+}
+
+.table_AP {
+    border-collapse: collapse;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    border: 1px solid #000;
+    padding: 2px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.floor-header {
+    background-color: #e6e6e6;
+    font-weight: bold;
+}

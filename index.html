@@ -22,6 +22,7 @@
         <!-- 選單 -->
         <div class="row">
             <div class="col">
+                <a href="index.html"><img src="img/home.svg" alt="回首頁" width="35" height="35"></a>
                 <!-- 左側 hover 下拉選單 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
@@ -39,7 +40,6 @@
                         <li><a class="dropdown-item"
                                 href="https://reminiscent-legend-2b8.notion.site/Open-ID-1748ca7d2505806981ccdaf999d1d99e?pvs=4"
                                 target="_blank">學生自行更改 OpenID 密碼</a> </li>
-
                     </ul>
                 </div>
 
@@ -201,9 +201,9 @@
                         </li>
                         <li><a class="dropdown-item" href="https://picwish.com/tw/" target="_blank">PicWish一站式圖片創作</a>
                         </li>
-                        <li><a class="dropdown-item" href="https://reurl.cc/9445rv"
-                                target="_blank">虎尾科技大學陳國益教授-AI生成技術&</a></li>
-                        <li><a class="dropdown-item" href="https://reurl.cc/GpxjRy" target="_blank">科技領域中央輔導團徐臺屏老師-AI
+                        <li><a class="dropdown-item" href="https://reurl.cc/9445rv" target="_blank">陳國益教授-AI生成技術</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://reurl.cc/GpxjRy" target="_blank">徐臺屏老師-AI
                                 Agent Marketplace</a></li>
                     </ul>
                 </div>
@@ -227,9 +227,9 @@
                         學校網點
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./AP_Location/AP_Location.html">AP配置地點</a>
+                        <li><a class="dropdown-item" href="AP_SwitchHub/AP_Location.html">AP配置地點</a>
                         </li>
-                        <li><a class="dropdown-item" href="https://tfc-taiwan.org.tw/" target="_blank">後庭</a></li>
+                        <li><a class="dropdown-item" href="AP_SwitchHub/SwitchHub.html">Switch Hub</a></li>
                     </ul>
                 </div>
 
@@ -296,12 +296,6 @@
         </nav>
     </div>
 
-    <!-- <div class="footer">
-        <div class="col">
-            「教務主任」或「資訊組長」<a class="a_link" href="https://mdm.edu.tw/" target="_blank"
-                title="目前只有教務主任和資訊組可以查看">查看平板使用情形</a>&nbsp;&nbsp;‖&nbsp;&nbsp;最新修正時間：<span id="lastModified"></span>
-        </div>
-    </div> -->
     <div class="footer">
         <div class="col">
             「教務主任」或「資訊組長」<a class="a_link" href="https://mdm.edu.tw/" target="_blank"
@@ -393,8 +387,6 @@
                     button.classList.add('active');
                     activeCollapse = collapseEl;
                 });
-
-                // 滑鼠離開按鈕區域時不做任何事（保留展開狀態）
 
                 // 滑鼠進入內容區域時不做任何事（保留展開狀態）
                 collapseEl.addEventListener('mouseenter', () => {
