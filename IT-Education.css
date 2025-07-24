@@ -227,6 +227,18 @@ h3 {
     border-radius: 4px;
 }
 
+/* 針對「學校網點」下拉選單的特殊樣式 */
+.dropdown:nth-of-type(6) .dropdown-menu {
+    width: auto;
+    min-width: auto;
+}
+
+/* 針對「教育平台」下拉選單的特殊樣式 */
+.dropdown:nth-of-type(7) .dropdown-menu {
+    width: auto;
+    min-width: auto;
+}
+
 /* 摺疊標題樣式 */
 .collapsible-header {
     padding: 20px 0 0 1%;
@@ -247,7 +259,7 @@ h3 {
 /* 摺疊內容樣式 */
 .collapsible-content {
     display: none;
-    padding: 0 1%;
+    padding: 10px 1%;
 }
 
 /* 箭頭圖示樣式 */
