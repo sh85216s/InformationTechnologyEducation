@@ -140,8 +140,10 @@ h3 {
     left: 0;
     z-index: 1000;
     min-width: 200px;
-    padding: 5px 0;
-    margin: 1px 0 0;
+    /* padding: 5px 0; */
+    padding: 3px 0;
+    /* margin: 1px 0 0; */
+    margin: 0px 0 0;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
@@ -195,7 +197,7 @@ h3 {
 
 .dropdown-item {
     display: block;
-    padding: 8px 20px;
+    padding: 5px 20px;
     clear: both;
     color: #333;
     text-decoration: none;
@@ -245,7 +247,7 @@ h3 {
     cursor: pointer;
     color: #333;
     /* 預設黑色 */
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     transition: color 0.3s ease;
     /* 顏色過渡效果 */
@@ -321,4 +323,31 @@ h3 {
 .accordion-button.active {
     background-color: #c57998 !important;
     color: white;
+}
+
+/* 「Jamf Teacher」這支APP的應用程式組態中貼上程式碼 */
+.code-container {
+    position: relative;
+}
+
+.code-toolbar {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+.code-toolbar button {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    padding: 0.2rem 0.5rem;
+}
+
+pre {
+    padding-top: 0.5rem;
+    overflow-x: auto;
+}
+
+.hljs {
+    border-radius: 0.5rem;
 }
