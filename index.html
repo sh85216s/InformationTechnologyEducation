@@ -168,9 +168,21 @@
                                 target="_blank">學校平板管理</a></li>
                         <li><a class="dropdown-item" href="iPad教學/課堂APP.html" target="_blank">「課堂」APP使用說明</a></li>
                     </ul>
-                </div>                
+                </div>
 
                 <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        數位素養與安全
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://eliteracy.edu.tw/" target="_blank">中小學數位素養教育資源網</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.twcert.org.tw/tw/mp-1.html" target="_blank">台灣電腦網路危機處理暨協調中心</a></li>
+                        <li><a class="dropdown-item" href="https://tfc-taiwan.org.tw/" target="_blank">台灣事實查核中心</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         數位素養與安全
                     </button>
@@ -180,18 +192,6 @@
                         <li><a class="dropdown-item" href="https://www.twcert.org.tw/tw/mp-1.html"
                                 target="_blank">台灣電腦網路危機處理暨協調中心</a></li>
                         <li><a class="dropdown-item" href="https://tfc-taiwan.org.tw/" target="_blank">台灣事實查核中心</a></li>
-
-                    </ul>
-                </div>
-
-                <!-- <div class="btn-group dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button">
-                        網通設備管理
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="網通設備管理/AP_SwitchHub.html">AP & Switch hub 配置</a>
-                        </li>
-                        <li><a class="dropdown-item" href="網通設備管理/Printer.html">印表機(事務機)</a></li>
                     </ul>
                 </div> -->
 
@@ -320,121 +320,6 @@
             最新修正時間：<span id="lastModified"></span>
         </div>
     </div>
-
-    <!-- <script>
-        const announcements = [
-            { date: "2025-07-28", title: "新電腦請將預設的列印色彩設定為「灰階」", content: '新電腦重新安裝印表機程式，預設的的列印色彩為「彩色」。在執行列印前檢視預設的列印色彩如為「彩色」，請更改為「灰階」再列印，因為1張彩色列印的價格為4元，是1張灰階的4倍。<br>第1次列印PDF時，預設的的列印色彩也是為「彩色」，列印前請先更改為「灰階」。在第1次修改之後再來列印PDF檔案，就都會以「灰階」作為預設的色彩。' },
-            { date: "2025-07-13", title: "WinRAR 爆重大漏洞，駭客可遠端執行惡意程式碼", content: '出處：<a href="https://infosecu.technews.tw/2025/06/26/winrar-vulnerabilities/" target=" _blank">https://infosecu.technews.tw/2025/06/26/winrar-vulnerabilities/</a><br>使用 WinRAR 的用戶應定期留意官方更新資訊，並儘速升級版本，以確保系統不受潛在攻擊威脅。<br>如果對winRAR有疑慮，也可以考慮改用7-zip。<br>7-Zip 繁體中文版官方網站：<a href="https://www.developershome.com/7-zip/" target=" _blank">https://www.developershome.com/7-zip/</a>' },            
-            // { date: "2025-07-13", title: "WinRAR 爆重大漏洞，駭客可遠端執行惡意程式碼", content: '出處：<a href="https://infosecu.technews.tw/2025/06/26/winrar-vulnerabilities/" target=" _blank">https://infosecu.technews.tw/2025/06/26/winrar-vulnerabilities/</a><br>使用 WinRAR 的用戶應定期留意官方更新資訊，並儘速升級版本，以確保系統不受潛在攻擊威脅。<br>如果對winRAR有疑慮，也可以考慮改用7-zip。<br>7-Zip 繁體中文版官方網站：<a href="https://www.developershome.com/7-zip/" target=" _blank">https://www.developershome.com/7-zip/</a>' },            
-
-        ];
-
-        const itemsPerPage = 10;
-        let currentPage = 1;
-
-        const accordion = document.getElementById('announcementAccordion');
-        const pagination = document.getElementById('pagination');
-
-        function renderPage(page) {
-            accordion.innerHTML = '';
-            const start = (page - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
-            const pageItems = announcements.slice(start, end);
-
-            pageItems.forEach((item, i) => {
-                const index = start + i;
-                const html = `
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading${index}">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="false" aria-controls="collapse${index}">
-                        <strong>▪️</strong> ${item.date} - ${item.title}
-                      </button>
-                    </h2>
-                    <div id="collapse${index}" class="accordion-collapse collapse" aria-labelledby="heading${index}" data-bs-parent="#announcementAccordion">
-                      <div class="accordion-body">${item.content}</div>
-                    </div>
-                  </div>`;
-                accordion.insertAdjacentHTML('beforeend', html);
-            });
-
-            bindAccordionHover();
-        }
-
-        function renderPagination() {
-            pagination.innerHTML = '';
-            const totalPages = Math.ceil(announcements.length / itemsPerPage);
-            for (let i = 1; i <= totalPages; i++) {
-                const li = document.createElement('li');
-                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-                li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-                li.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentPage = i;
-                    renderPage(currentPage);
-                    renderPagination();
-                });
-                pagination.appendChild(li);
-            }
-        }
-
-        function bindAccordionHover() {
-            const buttons = document.querySelectorAll('.accordion-button');
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            let activeCollapse = null;
-
-            buttons.forEach(button => {
-                const collapseId = button.getAttribute('data-bs-target');
-                const collapseEl = document.querySelector(collapseId);
-                const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-
-                // 確保初始狀態是收合的
-                bsCollapse.hide();
-
-                // 滑鼠進入按鈕區域時展開
-                button.addEventListener('mouseenter', () => {
-                    // 如果已經有展開的項目，先收合
-                    if (activeCollapse && activeCollapse !== collapseEl) {
-                        bootstrap.Collapse.getInstance(activeCollapse).hide();
-                        document.querySelector(`button[data-bs-target="#${activeCollapse.id}"]`).classList.remove('active');
-                    }
-
-                    // 展開當前項目
-                    bsCollapse.show();
-                    button.classList.add('active');
-                    activeCollapse = collapseEl;
-                });
-
-                // 滑鼠進入內容區域時不做任何事（保留展開狀態）
-                collapseEl.addEventListener('mouseenter', () => {
-                    // 不做任何事，保持展開狀態
-                });
-
-                // 滑鼠離開整個 accordion-item 時收合
-                const accordionItem = button.closest('.accordion-item');
-                accordionItem.addEventListener('mouseleave', (e) => {
-                    // 檢查滑鼠是否真的離開了整個項目（而不是移到內容區域）
-                    if (!accordionItem.contains(e.relatedTarget)) {
-                        bsCollapse.hide();
-                        button.classList.remove('active');
-                        if (activeCollapse === collapseEl) {
-                            activeCollapse = null;
-                        }
-                    }
-                });
-            });
-        }
-
-        // 顯示最後修改時間
-        const lastModified = new Date(document.lastModified);
-        const formattedDateTime = `${lastModified.getFullYear()}-${lastModified.getMonth() + 1}-${String(lastModified.getDate()).padStart(2, '0')} ${String(lastModified.getHours()).padStart(2, '0')}:${String(lastModified.getMinutes()).padStart(2, '0')}:${String(lastModified.getSeconds()).padStart(2, '0')}`;
-        document.getElementById("lastModified").textContent = formattedDateTime;
-
-        // 初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            renderPage(currentPage);
-            renderPagination();
-        });
-    </script> -->
 <script>
     const url = 'https://script.google.com/macros/s/AKfycbwzRjQu78AeaDKk5zolHWuyl7mQJEDLMGSOdlBDErDNSnLamkTE767wKQQMS2Yiz38JDg/exec'; // ← 換成你實際的網址
     const accordion = document.getElementById('announcementAccordion');
