@@ -6,9 +6,9 @@ body {
 }
 
 .SiaoBiaoti {
-    font-size: 16px; 
-    color: black; 
-    position: relative; 
+    font-size: 16px;
+    color: black;
+    position: relative;
     top: -4px;
 }
 
@@ -357,4 +357,19 @@ pre {
 
 .hljs {
     border-radius: 0.5rem;
+}
+
+.my-border {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.my-border-div {
+    background-color: #213567;
+    border-radius: 12px;
+    padding: 16px;
+    color: white;
+    width: fit-content;
+    border: 2px solid #ffffff33;
 }
