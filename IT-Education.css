@@ -176,15 +176,15 @@ h3 {
 }
 
 /* 讓所有下拉選單按鈕在手機上寬度一致 */
-.btn-group .btn {
+/* .btn-group .btn {
     width: 100%;
-}
+} */
 
 /* 避免 Bootstrap 自動壓縮按鈕寬度 */
-.btn-group {
+/* .btn-group {
     display: block;
     width: 100%;
-}
+} */
 
 .btn-group.dropdown:nth-of-type(4) .dropdown-toggle {
     width: auto;
