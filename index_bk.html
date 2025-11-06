@@ -10,7 +10,7 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="IT-Education.css">
+    <link rel="stylesheet" href="IT-Education.css">
     <title>資訊教育推廣網站-首頁</title>
 </head>
 
@@ -21,9 +21,11 @@
                 <a href="index.html"><img src="img/home.svg" alt="回首頁"></a><span>愛蘭國小資訊教育推廣與管理</span>
             </div>
         </div>
+        <!-- 選單 -->
         <div class="row">
-            <div class="menu-container">
-
+            <div class="col">
+                <!-- 左側 hover 下拉選單 -->
+                <!-- 生帳號 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         學生帳號
@@ -43,6 +45,7 @@
                     </ul>
                 </div>
 
+                <!-- 資訊教學資源 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         資訊教學資源
@@ -158,6 +161,7 @@
                     </ul>
                 </div>
 
+                <!-- iPad教學 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         iPad教學
@@ -169,6 +173,7 @@
                     </ul>
                 </div>
 
+                <!-- 資訊素養與安全 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         數位素養與安全
@@ -183,6 +188,7 @@
                     </ul>
                 </div>
 
+                <!-- 常用教育平台 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         常用教育平台
@@ -204,6 +210,7 @@
                     </ul>
                 </div>
 
+                <!-- AI工具 -->
                 <div class="btn-group dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button">
                         AI工具
@@ -242,6 +249,7 @@
                     </ul>
                 </div>
 
+                <!-- 好用資源 -->
                 <div class="btn-group dropdown">
                     <button type="button" class="btn btn-secondary dropdown-toggle">
                         好用資源
@@ -271,6 +279,7 @@
                     </ul>
                 </div>
 
+                <!-- 網管專區 -->
                 <div class="btn-group dropdown">
                     <button type="button" class="btn btn-secondary dropdown-toggle">
                         網管專區
@@ -297,6 +306,7 @@
         </div>
     </div>
 
+    <!-- 公告區 -->
     <div class="container mt-5">
         <h2 class="mb-4">📢 最新公告</h2>
         <div class="accordion" id="announcementAccordion"></div>
@@ -310,12 +320,9 @@
             <span>Copyright © 2025 愛蘭國小資訊組</span>
             <span class="hidden-on-mobile">&nbsp;&nbsp;‖&nbsp;&nbsp;</span>
             <br class="d-block d-sm-none"> <!-- 只在手機顯示時換行 -->
-            最新修正時間：<span id="lastModified"></span>&nbsp;&nbsp;‖&nbsp;&nbsp;
-            <span><a href="https://docs.google.com/spreadsheets/d/14QrggSS-WaNefahB1r3_I2mTnvYdkacIR3ZITWr1pRw/edit?usp=sharing"
-                    target="_blank" style="text-decoration: none; color: inherit;">張貼公告</a></span>
+            最新修正時間：<span id="lastModified"></span>
         </div>
     </div>
-    <br><br>
     <script>
         const url = 'https://script.google.com/macros/s/AKfycbwzRjQu78AeaDKk5zolHWuyl7mQJEDLMGSOdlBDErDNSnLamkTE767wKQQMS2Yiz38JDg/exec'; // ← 換成你實際的網址
         const accordion = document.getElementById('announcementAccordion');
@@ -324,14 +331,6 @@
         let announcements = [];
         const itemsPerPage = 10;
         let currentPage = 1;
-
-        // 將純文字 URL 轉換為超連結的函式
-        function linkify(text) {
-            // 匹配以 http:// 或 https:// 開頭的 URL
-            const urlRegex = /(\b(https?):\/\/[-\w+&@#\/%?=~_|!:,.;]*[-\w+&@#\/%=~_|])/ig;
-            let linkedText = text.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
-            return linkedText;
-        }
 
         // 取得公告並初始化
         fetch(url)
@@ -352,18 +351,18 @@
 
             pageItems.forEach((item, index) => {
                 const id = (start + index);
-                const contentWithLinks = linkify(item.content);
-
-                const html = `<div class="accordion-item">
-                    <h2 class="accordion-header" id="heading${id}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${id}">
-                        ▪️ ${item.date} - ${item.title}
-                    </button>
-                    </h2>
-                    <div id="collapse${id}" class="accordion-collapse collapse" data-bs-parent="#announcementAccordion">
-                    <div class="accordion-body">${contentWithLinks}</div>
-                    </div>
-                </div>`;
+                const html = `
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading${id}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${id}">
+            ▪️ ${item.date} - ${item.title}
+          </button>
+        </h2>
+        <div id="collapse${id}" class="accordion-collapse collapse" data-bs-parent="#announcementAccordion">
+          <div class="accordion-body">${item.content}</div>
+        </div>
+      </div>
+    `;
                 accordion.insertAdjacentHTML('beforeend', html);
             });
         }
@@ -386,11 +385,13 @@
             }
         }
     </script>
+    <!-- 以下--顯示最後修改時間 -->
     <script>
         const lastModified = new Date(document.lastModified);
         const formattedDateTime = `${lastModified.getFullYear()}-${lastModified.getMonth() + 1}-${String(lastModified.getDate()).padStart(2, '0')} ${String(lastModified.getHours()).padStart(2, '0')}:${String(lastModified.getMinutes()).padStart(2, '0')}:${String(lastModified.getSeconds()).padStart(2, '0')}`;
         document.getElementById("lastModified").textContent = formattedDateTime;
     </script>
+    <!-- 以上--顯示最後修改時間 -->
 </body>
 
 </html>
