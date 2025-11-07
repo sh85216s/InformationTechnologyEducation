@@ -12,363 +12,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/vs2015.min.css">
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <link rel="stylesheet" href="../IT-Education.css">
     <script>hljs.highlightAll();</script>
     <title>資訊教育推廣網站-課堂APP</title>
 </head>
-<style>
-    /* 保持原有的背景色和標題樣式 */
-    body {
-        background: linear-gradient(0deg, #fff, #f3d8f7);
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .SiaoBiaoti {
-        font-size: 16px;
-        color: black;
-        position: relative;
-        top: -4px;
-    }
-
-    .icon-text {
-        display: inline-flex;
-        align-items: center;
-        vertical-align: bottom;
-        margin-top: 30px;
-        margin-bottom: 5px;
-        font-size: 2.5rem;
-    }
-
-    .icon-text img {
-        width: 45px;
-        height: 45px;
-        margin-right: 10px;
-        vertical-align: text-top;
-    }
-
-    .icon-text span {
-        vertical-align: bottom;
-    }
-
-    /* --- 橫向選單樣式調整 START --- */
-    /* 主選單容器：使用 flexbox 讓按鈕橫向排列 */
-    .menu-container {
-        display: flex;
-        flex-wrap: wrap;
-        /* 允許換行以應對小螢幕 */
-        padding: 0;
-        margin: 0;
-    }
-
-    /* 下拉菜單按鈕組件 */
-    .btn-group.dropdown {
-        /* 橫向排列的關鍵：將區塊元素改為內聯區塊 */
-        display: inline-block;
-        margin-right: 5px;
-        /* 按鈕間距 */
-        margin-bottom: 5px;
-        /* 換行時的間距 */
-    }
-
-    /* 按鈕外觀：符合圖片中的樣式 */
-    .btn-secondary {
-        background-color: #c57998 !important;
-        border-color: #c57998 !important;
-        color: white !important;
-        /* 讓按鈕的圓角更小，更貼合圖片樣式 */
-        border-radius: 0.25rem;
-    }
-
-    /* 按鈕懸停狀態 */
-    .btn-secondary:hover {
-        background-color: #b36685 !important;
-        border-color: #a35a7a !important;
-    }
-
-    /* 按鈕聚焦狀態 */
-    .btn-secondary:focus {
-        box-shadow: 0 0 0 0.25rem rgba(197, 121, 152, 0.5) !important;
-    }
-
-    /* 下拉選單樣式 */
-    .dropdown-menu {
-        background-color: #eee;
-        /* 確保下拉選單在橫向排版時定位正確 */
-        position: absolute;
-        z-index: 1000;
-    }
-
-    /* 選單項目懸停效果調整 */
-    .dropdown-item:hover {
-        background-color: #c57998 !important;
-        color: white !important;
-    }
-
-    /* 子選單設定 */
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu>.dropdown-menu {
-        top: -6px;
-        left: 100%;
-        margin-left: -1px;
-    }
-
-    /* 顯示下拉選單的觸發效果 */
-    .dropdown:hover>.dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-submenu:hover>.dropdown-menu {
-        display: block;
-    }
-
-    /* 隱藏預設的子選單箭頭 */
-    .dropdown-submenu>a::after {
-        display: none;
-        content: "➤";
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 12px;
-    }
-
-    /* 在懸停時顯示子選單箭頭 */
-    .dropdown-submenu:hover>a::after {
-        display: block;
-    }
-
-    /* 針對AI工具下拉選單的特殊樣式 */
-    .dropdown:nth-of-type(6) .dropdown-menu {
-        /* 索引位置可能因新增/移除按鈕而改變，需要確認 */
-        max-height: 450px;
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: #c57998 #f6ccfc;
-    }
-
-    .dropdown:nth-of-type(6) .dropdown-menu::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .dropdown:nth-of-type(6) .dropdown-menu::-webkit-scrollbar-track {
-        background: #f6ccfc;
-    }
-
-    .dropdown:nth-of-type(6) .dropdown-menu::-webkit-scrollbar-thumb {
-        background-color: #c57998;
-        border-radius: 4px;
-    }
-
-    /* --- 橫向選單樣式調整 END --- */
-
-    /* --- 摺疊選單標題樣式修改 START --- */
-    /* 應用於所有摺疊標題 */
-    .collapsible-header {
-        cursor: pointer;
-        padding: 10px 15px;
-        margin: 5px 0;
-        background-color: #f7d5e2;
-        /* 預設底色 */
-        color: #333;
-        /* 預設文字顏色 */
-        border: 1px solid #c57998;
-        border-radius: 0.25rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        /* 平滑過渡效果 */
-        font-size: 1.25rem;
-        /* 保持原來的 h4 大小 */
-        font-weight: 500;
-        display: flex;
-        /* 使用 flexbox 對齊內容 */
-        justify-content: space-between;
-        /* 內容兩端對齊 */
-        align-items: center;
-        /* 垂直居中 */
-    }
-
-    /* 移除標題內的箭頭圖示 */
-    .collapsible-header i {
-        display: none;
-    }
-
-    /* 滑鼠懸停效果 */
-    .collapsible-header:hover {
-        background-color: #c57998;
-        /* 懸停底色 */
-        color: white;
-        /* 懸停文字顏色 */
-    }
-
-    /* 展開時的樣式 (點擊後) */
-    .collapsible-header.active {
-        background-color: #b36685;
-        /* 展開時的底色 */
-        color: white;
-        /* 展開時的文字顏色 */
-    }
-
-    /* 摺疊內容的樣式 */
-    .collapsible-content {
-        padding: 15px;
-        border: 1px solid #c57998;
-        border-top: none;
-        border-radius: 0 0 0.25rem 0.25rem;
-        background-color: #f7d5e2;
-        /* 確保內容底色與原來的 accordion-body 顏色一致 */
-        display: none;
-        /* 初始隱藏 */
-    }
-
-    /* --- 摺疊選單標題樣式修改 END --- */
-
-
-    /* 保持其他原有樣式 */
-    .table_AP {
-        width: 95%;
-        border-collapse: collapse;
-        margin: 5px 0;
-    }
-
-    th,
-    td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .th_AP {
-        background-color: #f6ccfc;
-    }
-
-    .pagination .page-item.active .page-link {
-        background-color: #c57998 !important;
-        border-color: #c57998 !important;
-        color: #fff;
-    }
-
-    .pagination .page-link {
-        color: #f00;
-    }
-
-    .pagination .page-link:hover {
-        color: #fff;
-        background-color: #f00;
-    }
-
-    h3 {
-        color: rgb(252, 43, 182);
-    }
-
-    .a_link {
-        color: #f5b8f5;
-        text-decoration: none;
-    }
-
-    @keyframes waveMove {
-        from {
-            background-position: 0 100%;
-        }
-
-        to {
-            background-position: -20px 100%;
-        }
-    }
-
-    .a_link:hover {
-        color: #fff;
-        text-decoration: none;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23ff3300' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3'/%3E%3C/svg%3E") repeat-x 0 100%;
-        background-size: 20px auto;
-        animation: waveMove 1s infinite linear;
-    }
-
-    .container {
-        width: 90%;
-    }
-
-    .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        background-color: #b16585;
-        color: #fff;
-        padding: 8px 0;
-        font-size: 1em;
-    }
-
-    /* 手機版適應：讓按鈕改為堆疊，但保持下拉選單的寬度 */
-    @media (max-width: 768px) {
-        .btn-group.dropdown {
-            display: block;
-            /* 在手機上堆疊 */
-            width: 100%;
-        }
-
-        .btn-group .btn,
-        .btn-group .dropdown-toggle {
-            width: 100%;
-            /* 按鈕佔滿寬度 */
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .dropdown-menu {
-            width: 100%;
-            /* 保持定位不變，讓下拉選單在按鈕下方展開 */
-        }
-
-        .dropdown-submenu>.dropdown-menu {
-            left: 15px;
-            /* 調整子選單在手機上的位置 */
-            margin-left: 0;
-        }
-    }
-
-    .accordion-button:hover {
-        background-color: #eee !important;
-    }
-
-    .accordion-body {
-        background-color: #f7d5e2;
-    }
-
-    .accordion-button.active {
-        background-color: #c57998 !important;
-        color: white;
-    }
-
-    .code-container {
-        position: relative;
-    }
-
-    .code-toolbar {
-        position: absolute;
-        top: 0.5rem;
-        right: 1rem;
-        z-index: 1;
-    }
-
-    .code-toolbar button {
-        font-size: 0.75rem;
-        margin-left: 0.25rem;
-        padding: 0.2rem 0.5rem;
-    }
-
-    pre {
-        padding-top: 0.5rem;
-        overflow-x: auto;
-    }
-
-    .hljs {
-        border-radius: 0.5rem;
-    }
-</style>
 
 <body>
     <div class="container">
@@ -377,6 +24,288 @@
                 <a href="../index.html"><img src="../img/home.svg" alt="回首頁"></a><span>愛蘭國小資訊教育推廣與管理</span>
             </div>
         </div>
+
+        <!-- 選單 -->
+        <div class="row">
+            <div class="col">
+                <!-- 左側 hover 下拉選單 -->
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        學生帳號
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"
+                                href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&hl=zh-TW&hd=alps.ntct.edu.tw&ifkv=AYZoVhft_9reQ2kj75xLc4AJca_OUG2adfqwWrvUDWjVplaQhQBHfAoqEc9UqSO6bEkrunxwU9xj&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-16730160%3A1695082525122087&theme=glif"
+                                target="_blank">登入學校google帳號</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://sh85216s.github.io/Ai-Lan-web/dataTable/%E5%AD%B8%E7%94%9F%E5%B8%B3%E8%99%9F%E4%BD%BF%E7%94%A8%E8%AA%AA%E6%98%8E.html"
+                                target="_blank">學生帳號使用說明</a></li>
+                        <li><a class="dropdown-item" href="https://sh85216s.github.io/Ai-Lan-web/dataTable/學生各類帳號.html"
+                                target="_blank">學生各類帳號</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://reminiscent-legend-2b8.notion.site/Open-ID-1748ca7d2505806981ccdaf999d1d99e?pvs=4"
+                                target="_blank">學生自行更改 OpenID 密碼</a> </li>
+                    </ul>
+                </div>
+
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        資訊教學資源
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">打字練習</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://www.typingclub.com/"
+                                        target="_blank">TypingClub</a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="https://drive.google.com/drive/folders/0BzLJrQ1QmBGzbjlaZjJsVWVoeDg?resourcekey=0-61yMyFzbuQNEOEWC0dF-Fw"
+                                        target="_blank">中、英文打字練習( swf 程式)</a></li>
+                                <li><a class="dropdown-item" href="https://worldofkeyboards.com/bopomofo"
+                                        target="_blank">中打基本功-注音鍵盤篇</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://www2.lhps.kh.edu.tw/html/win10/games/punctuation_exam/index.html"
+                                        target="_blank">標點符號輸入大考驗</a></li>
+                                <li><a class="dropdown-item" href="http://tgame.eduweb.com.tw/TGame/index.html"
+                                        target="_blank">打字GAME</a></li>
+                                <li><a class="dropdown-item" href="https://contest.hlc.edu.tw/typing/"
+                                        target="_blank">花蓮縣打字練習網</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">SCRATCH</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://scratch.mit.edu/" target="_blank">Scratch
+                                        官網</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://sites.google.com/site/scratch3jichukechengblocks/"
+                                        target="_blank">Scratch 3基礎課程 Blocks</a></li>
+                                <li><a class="dropdown-item" href="https://sites.google.com/site/scratch30jibenjiqiao/"
+                                        target="_blank">Scratch 3.0 基本技巧</a></li>
+                                <li><a class="dropdown-item" href="https://bezier.method.ac/" target="_blank">The Bézier
+                                        Game(鋼筆工具練習網站)</a></li>
+                                <li><a class="dropdown-item" href="https://shape.method.ac/" target="_blank">SHAPE
+                                        TYPE(字母塑形遊戲)</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://steam.oxxostudio.tw/category/scratch/index.html"
+                                        target="_blank">STEAM 教育學習網-Scratch 教學</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://www.junyiacademy.org/computing/programming/scratch"
+                                        target="_blank">均一教育平台－Scratch玩程式</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">Makecode Arcade</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://arcade.makecode.com/"
+                                        target="_blank">Makecode
+                                        Arcade官網</a></li>
+                                <li><a class="dropdown-item" href="https://sites.google.com/site/wenyuarcade/"
+                                        target="_blank">阿玉 Arcade 研究區</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://wise-wednesday-b9b.notion.site/Makecode-Arcade-12hr-18ecbd76f774808fa2edeb113ea15e83"
+                                        target="_blank">Makecode Arcade跨平台遊戲設計12hr</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">Micro:bit</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://makecode.microbit.org/?lang=zh-TW"
+                                        target="_blank">Micro:bit 官網</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://steam.oxxostudio.tw/category/microbit/index.html"
+                                        target="_blank">STEAM 教育學習網 micro:bit 教學</a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="https://www.youtube.com/playlist?list=PLGvDmN7CFT8cfHC0P-Vhy0NIqnUlIWGV_"
+                                        target="_blank">Micro:bit 完整教學課程</a></li>
+                                <li><a class="dropdown-item" href="https://globalgoals.tw/"
+                                        target="_blank">17項永續發展目標</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">Tinkercad</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://www.tinkercad.com/"
+                                        target="_blank">Tinkercad官網</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://sites.google.com/view/shiangs-3dp-notes/"
+                                        target="_blank">SJS的3D列印筆記</a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="https://3dmart.com.tw/news/top-5-free-stl-files-3d-printer-models-webs"
+                                        target="_blank">Micro:bit 五大3D模型庫</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">Canva</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://www.canva.com/zh_tw/"
+                                        target="_blank">Canva官網</a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="https://steam.oxxostudio.tw/category/canva/design/ppt.html"
+                                        target="_blank">Canva教學(STEAM 教育學習網)</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://geniushub.cc/how-to-use-canva/"
+                                        target="_blank">5分鐘Canva教學</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item" href="#">Gamma</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://gamma.app/" target="_blank">Gamma官網</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://help.gamma.app/zh-TW/"
+                                        target="_blank">Gamma團隊的建議和解答</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        iPad教學
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://sh85216s.github.io/Ai-Lan-web/愛蘭國小載具使用管理/index.html"
+                                target="_blank">學校平板管理</a></li>
+                        <li><a class="dropdown-item" href="../iPad教學/課堂APP.html" target="_blank">「課堂」APP使用說明</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        數位素養與安全
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://eliteracy.edu.tw/" target="_blank">中小學數位素養教育資源網</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.twcert.org.tw/tw/mp-1.html"
+                                target="_blank">台灣電腦網路危機處理暨協調中心</a></li>
+                        <li><a class="dropdown-item" href="https://tfc-taiwan.org.tw/" target="_blank">台灣事實查核中心</a></li>
+
+                    </ul>
+                </div>
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        常用教育平台
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://adl.edu.tw/HomePage/home/" target="_blank">教育部因材網</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.junyiacademy.org/" target="_blank">均一教育平台</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.learnmode.net/home/" target="_blank">學習吧</a></li>
+                        <li><a class="dropdown-item" href="https://www.pagamo.org/" target="_blank">PaGamO</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.coolenglish.edu.tw/" target="_blank">Cool
+                                English(酷英)</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://cooc.tp.edu.tw/" target="_blank">台北酷課雲</a></li>
+                        <li><a class="dropdown-item" href="https://1know.net/#!/" target="_blank">1Know</a></li>
+                        <li><a class="dropdown-item" href="https://cloud.edu.tw/" target="_blank">教育雲學習入口</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        AI工具
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://chatgpt.com/" target="_blank">ChatGPT</a></li>
+                        <li><a class="dropdown-item" href="https://openai.com/chatgpt/download/" target="_blank">ChatGPT
+                                For Mobile & For Desktop</a></li>
+                        <li><a class="dropdown-item" href="https://felo.ai/" target="_blank">Felo AI</a></li>
+                        <li><a class="dropdown-item" href="https://x.ai/" target="_blank">Grok(x.ai)</a></li>
+                        <li><a class="dropdown-item" href="https://www.deepseek.com/" target="_blank">DeepSeek</a></li>
+                        <li><a class="dropdown-item" href="https://www.perplexity.ai/" target="_blank">Perplexity</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://gemini.google.com/?hl=zh-TW"
+                                target="_blank">Gemini</a></li>
+                        <li><a class="dropdown-item" href="https://aistudio.google.com/" target="_blank">Google AI
+                                Studio</a></li>
+                        <li><a class="dropdown-item" href="https://copilot.microsoft.com/" target="_blank">Microsoft
+                                Copilot</a></li>
+                        <li><a class="dropdown-item" href="https://manus.im/app" target="_blank">Manus AI</a></li>
+                        <li><a class="dropdown-item" href="https://notebooklm.google.com/"
+                                target="_blank">NotebookLM</a></li>
+                        <li><a class="dropdown-item" href="https://claude.ai/" target="_blank">Claude.ai</a></li>
+                        <li><a class="dropdown-item" href="https://gamma.app/" target="_blank">Gamma</a></li>
+                        <li><a class="dropdown-item" href="https://websim.ai/" target="_blank">Websim.ai</a></li>
+                        <li><a class="dropdown-item" href="https://www.midjourney.com/" target="_blank">Midjourney</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://immersivetranslate.com/" target="_blank">沉浸式翻譯</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://picwish.com/tw/" target="_blank">PicWish一站式圖片創作</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://reurl.cc/9445rv" target="_blank">陳國益教授-AI生成技術</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://reurl.cc/GpxjRy" target="_blank">徐臺屏老師-AI
+                                Agent Marketplace</a></li>
+                    </ul>
+                </div>
+
+                <!-- 好用資源 -->
+                <div class="btn-group dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle">
+                        好用資源
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="https://eduweb.ntct.edu.tw/"
+                                target="_blank">南投縣高國中小專用線上課程</a></li>
+                        <li><a class="dropdown-item" href="https://sites.google.com/tc.edu.tw/ictxedu/plan/資訊教育市本課程"
+                                target="_blank">台中市資訊教育市本課程</a></li>
+                        <li><a class="dropdown-item" href="https://tw.piliapp.com/label/all/" target="_blank">工具邦</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.w3schools.com/colors/colors_picker.asp"
+                                target="_blank">HTML Color Picker(線上色碼挑選)</a></li>
+                        <li><a class="dropdown-item" href="https://chushin-creative.com/2023font-free/"
+                                target="_blank">免費商用字體</a></li>
+                        <li><a class="dropdown-item" href="https://www.iconfinder.com/" target="_blank">iconfinder</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.ilovepdf.com/zh-tw"
+                                target="_blank">iLovepdf(PDF愛好者的在線工具)</a></li>
+                        <li><a class="dropdown-item" href="https://driveuploader.com/" target="_blank">DriveUploader</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://taira-komori.jpn.org/freesoundtw.html"
+                                target="_blank">小森平的免費下載音效</a></li>
+                        <li><a class="dropdown-item" href="https://www.21zui.com/zh-xg.html" target="_blank">線上改圖</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- 網管專區 -->
+                <div class="btn-group dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle">
+                        網管專區
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="../網管專區/IP_network_segment.html" target=" _blank">全校IP網段</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://sso.ntct.edu.tw/NewLogins/Login.aspx"
+                                target=" _blank">單一入口網</a></li>
+                        <li><a class="dropdown-item" href="http://163.22.168.51/MyqlWhitelisting/Default?sc=愛蘭國小"
+                                target=" _blank">白名單匯入RADIUS</a></li>
+                        <li><a class="dropdown-item" href="https://ap2.ntct.edu.tw:8443/"
+                                target=" _blank">無線網路基地台管理(Unifi)</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://163.22.135.254:9443/" target=" _blank">防火牆</a></li>
+                        <li><a class="dropdown-item" href="http://163.22.168.99/ping/F_D.aspx"
+                                target=" _blank">OpenVPN</a></li>
+                        <li><a class="dropdown-item" href="https://snm.ntct.edu.tw/login.php" target=" _blank">智慧網路管理 -
+                                中心資訊平台</a></li>
+                        <li><a class="dropdown-item" href="../網通設備管理/AP_SwitchHub.html">AP & Switch hub 配置</a></li>
+                        <li><a class="dropdown-item" href="../網通設備管理/Printer.html">印表機(事務機)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <h3 style="padding: 20px 0 0 1%;"> 「課堂APP」使用說明</h3>
             <h4 class="collapsible-header">一、環境設置</h4>

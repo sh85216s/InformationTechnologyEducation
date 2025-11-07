@@ -289,3 +289,63 @@
     .hljs {
         border-radius: 0.5rem;
     }
+
+          /* --- 摺疊選單標題樣式修改 START --- */
+          /* 應用於所有摺疊標題 */
+          .collapsible-header {
+              cursor: pointer;
+              padding: 10px 15px;
+              margin: 5px 0;
+              background-color: #f7d5e2;
+              /* 預設底色 */
+              color: #333;
+              /* 預設文字顏色 */
+              border: 1px solid #c57998;
+              border-radius: 0.25rem;
+              transition: background-color 0.3s ease, color 0.3s ease;
+              /* 平滑過渡效果 */
+              font-size: 1.25rem;
+              /* 保持原來的 h4 大小 */
+              font-weight: 500;
+              display: flex;
+              /* 使用 flexbox 對齊內容 */
+              justify-content: space-between;
+              /* 內容兩端對齊 */
+              align-items: center;
+              /* 垂直居中 */
+          }
+    
+          /* 移除標題內的箭頭圖示 */
+          .collapsible-header i {
+              display: none;
+          }
+    
+          /* 滑鼠懸停效果 */
+          .collapsible-header:hover {
+              background-color: #c57998;
+              /* 懸停底色 */
+              color: white;
+              /* 懸停文字顏色 */
+          }
+    
+          /* 展開時的樣式 (點擊後) */
+          .collapsible-header.active {
+              background-color: #b36685;
+              /* 展開時的底色 */
+              color: white;
+              /* 展開時的文字顏色 */
+          }
+    
+          /* 摺疊內容的樣式 */
+          .collapsible-content {
+              padding: 15px;
+              border: 1px solid #c57998;
+              border-top: none;
+              border-radius: 0 0 0.25rem 0.25rem;
+              background-color: #f7d5e2;
+              /* 確保內容底色與原來的 accordion-body 顏色一致 */
+              display: none;
+              /* 初始隱藏 */
+          }
+    
+          /* --- 摺疊選單標題樣式修改 END --- */
