@@ -312,7 +312,8 @@
             <span class="hidden-on-mobile">&nbsp;&nbsp;‖&nbsp;&nbsp;</span>
             <br class="d-block d-sm-none"> <!-- 只在手機顯示時換行 -->
             最新修正時間：<span id="lastModified"></span>&nbsp;&nbsp;‖&nbsp;&nbsp;<a
-                style=" text-decoration: none; color: inherit;" href="https://docs.google.com/spreadsheets/d/14QrggSS-WaNefahB1r3_I2mTnvYdkacIR3ZITWr1pRw/edit?usp=sharing"
+                style=" text-decoration: none; color: inherit;"
+                href="https://docs.google.com/spreadsheets/d/14QrggSS-WaNefahB1r3_I2mTnvYdkacIR3ZITWr1pRw/edit?usp=sharing"
                 target=" _blank">張貼公告</a>
         </div>
     </div>
@@ -386,11 +387,30 @@
             }
         }
     </script>
-    <script>
+    <!-- <script>
         const lastModified = new Date(document.lastModified);
         const formattedDateTime = `${lastModified.getFullYear()}-${lastModified.getMonth() + 1}-${String(lastModified.getDate()).padStart(2, '0')} ${String(lastModified.getHours()).padStart(2, '0')}:${String(lastModified.getMinutes()).padStart(2, '0')}:${String(lastModified.getSeconds()).padStart(2, '0')}`;
         document.getElementById("lastModified").textContent = formattedDateTime;
-    </script>
+    </script> -->
+<script>
+    // 1. 获取最后修改日期
+    const lastModified = new Date(document.lastModified);
+
+    // 2. 格式化日期时间字符串 (不显示秒)
+    const formattedDateTime = `${lastModified.getFullYear()}-` +
+        `${lastModified.getMonth() + 1}-` +
+        `${String(lastModified.getDate()).padStart(2, '0')} ` +
+        `${String(lastModified.getHours()).padStart(2, '0')}:` +
+        `${String(lastModified.getMinutes()).padStart(2, '0')}`;
+
+    // 3. **关键修正点：将格式化的时间插入到 HTML 元素中**
+    const displayElement = document.getElementById("lastModified");
+    if (displayElement) {
+        displayElement.textContent = formattedDateTime;
+    } else {
+        console.error("找不到 ID 为 'lastModified' 的元素，请检查 HTML！");
+    }
+</script>
 </body>
 
 </html>
