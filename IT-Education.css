@@ -76,7 +76,7 @@
 
     /* 下拉選單樣式 */
     .dropdown-menu {
-        background-color: #eee;
+        background-color: #fcd6fc;
         /* 確保下拉選單在橫向排版時定位正確 */
         position: absolute;
         z-index: 1000;
