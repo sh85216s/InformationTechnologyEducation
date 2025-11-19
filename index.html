@@ -356,16 +356,20 @@
                 const id = (start + index);
                 const contentWithLinks = linkify(item.content);
 
+                // ⭐️ 修正處：將 'T16:00:00.000Z' 及其之後的部分移除
+                // 假設日期格式為 'YYYY-MM-DDT16:00:00.000Z' 或類似
+                const cleanDate = item.date.split('T')[0];
+
                 const html = `<div class="accordion-item">
-                    <h2 class="accordion-header" id="heading${id}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${id}">
-                        ▪️ ${item.date} - ${item.title}
-                    </button>
-                    </h2>
-                    <div id="collapse${id}" class="accordion-collapse collapse" data-bs-parent="#announcementAccordion">
-                    <div class="accordion-body">${contentWithLinks}</div>
-                    </div>
-                </div>`;
+                <h2 class="accordion-header" id="heading${id}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${id}">
+                    ▪️ ${cleanDate} - ${item.title}
+                </button>
+                </h2>
+                <div id="collapse${id}" class="accordion-collapse collapse" data-bs-parent="#announcementAccordion">
+                <div class="accordion-body">${contentWithLinks}</div>
+                </div>
+            </div>`;
                 accordion.insertAdjacentHTML('beforeend', html);
             });
         }
@@ -388,11 +392,13 @@
             }
         }
     </script>
+    <!-- 顯示時-分-秒 -->
     <!-- <script>
         const lastModified = new Date(document.lastModified);
         const formattedDateTime = `${lastModified.getFullYear()}-${lastModified.getMonth() + 1}-${String(lastModified.getDate()).padStart(2, '0')} ${String(lastModified.getHours()).padStart(2, '0')}:${String(lastModified.getMinutes()).padStart(2, '0')}:${String(lastModified.getSeconds()).padStart(2, '0')}`;
         document.getElementById("lastModified").textContent = formattedDateTime;
     </script> -->
+    <!-- 顯示時-分-秒 -->
     <script>
         // 1. 获取最后修改日期
         const lastModified = new Date(document.lastModified);
